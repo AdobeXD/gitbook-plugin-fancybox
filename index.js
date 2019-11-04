@@ -32,6 +32,7 @@ module.exports = {
 
       $('img').each(function(index, img) {
         var $img = $(img);
+        if (Array.from($img).some(img => img.attribs.class === "plain")) return img;
         $img.replaceWith(template({
           url: $img.attr('src'),
           title: $img.attr('alt')
